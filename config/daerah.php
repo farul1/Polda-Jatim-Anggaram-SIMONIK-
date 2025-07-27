@@ -1,0 +1,47 @@
+<?php
+
+return [
+    'kota' => [
+        // Kota
+        'Batu',
+        'Blitar',
+        'Kediri',
+        'Madiun',
+        'Malang',
+        'Mojokerto',
+        'Pasuruan',
+        'Probolinggo',
+        'Surabaya',
+
+        // Kabupaten
+        'Bangkalan',
+        'Banyuwangi',
+        'Blitar',
+        'Bojonegoro',
+        'Bondowoso',
+        'Gresik',
+        'Jember',
+        'Jombang',
+        'Kediri',
+        'Lamongan',
+        'Lumajang',
+        'Madiun',
+        'Magetan',
+        'Malang',
+        'Mojokerto',
+        'Nganjuk',
+        'Ngawi',
+        'Pacitan',
+        'Pamekasan',
+        'Pasuruan',
+        'Ponorogo',
+        'Probolinggo',
+        'Sampang',
+        'Sidoarjo',
+        'Situbondo',
+        'Sumenep',
+        'Trenggalek',
+        'Tuban',
+        'Tulungagung',
+    ],
+];

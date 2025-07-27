@@ -1,0 +1,25 @@
+.privacy-content {
+line-height: 1.7; /* Jarak antar baris untuk keterbacaan /
+font-size: 16px; / Ukuran font dasar /
+color: #333; / Warna teks utama */
+}.privacy-content h2 {
+font-size: 24px;
+font-weight: bold;
+color: #2d3748; /* Warna judul utama */
+margin-top: 2em;
+margin-bottom: 1em;
+border-bottom: 1px solid #e2e8f0;
+padding-bottom: 0.5em;
+}.privacy-content h3 {
+font-size: 20px;
+font-weight: bold;
+color: #4a5568; /* Warna sub-judul */
+margin-top: 1.5em;
+margin-bottom: 0.8em;
+}.privacy-content ul {
+list-style-type: disc;
+margin-left: 20px;
+margin-bottom: 1em;
+}.privacy-content li {
+margin-bottom: 0.5em;
+}
