@@ -37,11 +37,11 @@
         <div class="min-w-0 border-l border-yellow-500/30 pl-4">
           <h1 class="font-bold text-xl text-white hidden md:block leading-tight tracking-wider">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200">
-              SIMONIK
+              {{ get_setting('app_name') }}
             </span>
           </h1>
           <p class="text-xs text-gray-300 hidden md:block font-mono tracking-wider">
-            Sistem Informasi Monitoring IKPA
+            {{ get_setting('app_tagline') }}
           </p>
         </div>
       </div>
