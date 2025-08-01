@@ -1,4 +1,4 @@
-<h1 align="center">🚓 Sistem Administrasi Pengajuan Anggaran Polda Jatim</h1>
+<h1 align="center">🚓 SIMONIK Pengajuan Anggaran Polda Jatim</h1>
 
 <p align="center">
   Aplikasi Web Laravel Modern untuk <strong>Pengelolaan Anggaran Polsek</strong> yang Transparan, Efisien, dan Akuntabel.
