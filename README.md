@@ -122,12 +122,9 @@ Proyek ini dilisensikan di bawah MIT License.
 
 ⸻
 
-
 ---
 
 ### ✅ Catatan Tambahan:
 - Gambar preview seperti `preview/login.png` dapat kamu ganti atau hapus jika belum tersedia.
 - Jangan lupa ubah placeholder `[NAMA ANDA]`, `[URL_REPO_ANDA]`, dan `email@example.com`.
 - Jika ingin menambahkan logo institusi atau badge CI/CD (misal GitHub Actions), tinggal tambahkan bagian `<img>` pada header atau footer.
-
-Kalau kamu mau versi yang dark mode atau tambahan animasi (GIF loading, dashboard), tinggal kasih tahu saja. Mau dijadikan PDF juga bisa.
