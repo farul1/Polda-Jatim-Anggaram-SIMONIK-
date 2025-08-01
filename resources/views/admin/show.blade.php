@@ -38,7 +38,7 @@
                     <div class="flex flex-col md:flex-row gap-4 mt-3">
                         <a href="{{ Storage::url($pengajuan->laporan_kebutuhan) }}" target="_blank"
                             class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition">
-                            📄 Laporan Kebutuhan
+                            📄 Laporan rencana kebutuhan anggaran
                         </a>
                         <a href="{{ Storage::url($pengajuan->laporan_keuangan_lalu) }}" target="_blank"
                             class="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700 transition">
