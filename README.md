@@ -1,110 +1,133 @@
-# 🚨 Sistem Administrasi Pengajuan Anggaran | Polda Jawa Timur
+<h1 align="center">🚓 Sistem Administrasi Pengajuan Anggaran Polda Jatim</h1>
 
-Aplikasi berbasis Laravel yang dirancang khusus untuk mendigitalisasi proses pengajuan anggaran dari Polsek ke Polres hingga Polda Jatim. Fokus pada **efisiensi, transparansi, dan akuntabilitas** dalam tata kelola anggaran publik.
+<p align="center">
+  Aplikasi Web Laravel Modern untuk <strong>Pengelolaan Anggaran Polsek</strong> yang Transparan, Efisien, dan Akuntabel.
+</p>
 
----
-
-## 📌 Daftar Isi
-
-- [🔍 Tentang Proyek](#-tentang-proyek)
-- [✨ Fitur Unggulan](#-fitur-unggulan)
-- [🛠️ Teknologi yang Digunakan](#-teknologi-yang-digunakan)
-- [🚀 Panduan Instalasi](#-panduan-instalasi)
-- [🧪 Akun Super Admin](#-akun-super-admin)
-- [📸 Tampilan Antarmuka](#-tampilan-antarmuka)
-- [🤝 Kontribusi & Lisensi](#-kontribusi--lisensi)
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-10-red?style=for-the-badge&logo=laravel" alt="Laravel Badge">
+  <img src="https://img.shields.io/badge/PHP-8.2-blue?style=for-the-badge&logo=php" alt="PHP Badge">
+  <img src="https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql" alt="MySQL Badge">
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind Badge">
+</p>
 
 ---
 
-## 🔍 Tentang Proyek
+## 📖 Tentang Proyek
 
-Proyek ini merupakan sistem manajemen anggaran berbasis web untuk lingkungan **Polda Jawa Timur**, dengan model **multi-role hierarchy**. Sistem ini menggantikan proses manual dengan alur kerja digital yang **tertata**, **terstruktur**, dan **berbasis notifikasi real-time**.
+Aplikasi ini dirancang untuk **memodernisasi sistem pengajuan anggaran** dari Polsek ke Polres dalam wilayah hukum **Polda Jawa Timur**. Berbasis Laravel, sistem ini menyederhanakan proses birokrasi, menghadirkan **notifikasi real-time**, dan menyediakan **dashboard manajemen modern**.
 
 ---
 
 ## ✨ Fitur Unggulan
 
-### 🔐 1. Struktur Peran (Role-Based Access Control)
+### 🧑‍💼 Sistem Hirarki Peran
+- **👑 Super Admin (Polda):** Akses dan kontrol penuh atas seluruh data dari semua wilayah.
+- **🛡️ Admin (Polres):** Mengelola pengajuan dari Polsek di bawah wilayahnya.
+- **👮 User (Polsek):** Mengajukan dan mengelola permintaan anggaran.
 
-- **Super Admin (Polda)**: Akses penuh ke semua wilayah.
-- **Admin (Polres)**: Kelola data & user dari wilayahnya sendiri.
-- **User (Polsek)**: Input dan lacak status pengajuan anggaran.
+### 📂 Manajemen Pengajuan Anggaran
+- Upload dua dokumen PDF per pengajuan.
+- Pagu Anggaran per Polsek yang otomatis terpotong saat disetujui.
 
-### 📝 2. Alur Pengajuan Digital
+### 🔔 Sistem Notifikasi Canggih
+- Notifikasi langsung di web (ikon lonceng) & email.
+- Admin bisa membalas dengan pesan teks, template, bahkan gambar.
 
-- Form input dengan **upload 2 dokumen PDF wajib**.
-- Sistem **Pagu Anggaran** per-Polsek yang otomatis terpotong saat disetujui.
+### 🧩 Content Management System (CMS)
+- Admin dapat mengubah konten publik tanpa coding: slider, peta, footer, link, dll.
 
-### 🔔 3. Notifikasi Real-Time
+### ⏰ Otomatisasi Jadwal
+- Email reminder otomatis untuk user yang belum mengajukan tepat waktu.
+- Sistem dapat memblokir user dengan riwayat keterlambatan.
 
-- Ikon notifikasi (🔔) di dashboard.
-- Notifikasi email otomatis untuk setiap update status.
-- Fitur **respon cepat**: balasan dari admin dengan pesan kustom, template, atau lampiran.
+### 🗺️ Pencarian Lokasi Interaktif
+- Integrasi **Leaflet.js** untuk memetakan data lokasi kantor Polsek & Polres.
 
-### 🧩 4. CMS Dinamis (Content Management System)
-
-- Kelola tampilan publik langsung dari admin panel tanpa coding.
-- Kontrol penuh atas slider, footer, konten informasi, link eksternal, dan peta.
-
-### 🧠 5. Otomatisasi Scheduler
-
-- Sistem otomatis mengirim **pengingat pengajuan** dan memblokir user yang tidak aktif tepat waktu.
-
-### 🗺️ 6. Peta Interaktif
-
-- Pencarian lokasi kantor polisi berbasis **Leaflet.js**, langsung dari dashboard publik.
-
-### 🎨 7. Desain Modern & Responsif
-
-- Konsistensi UI/UX across devices.
-- Dark/light mode friendly *(jika diaktifkan nanti)*.
+### 🎨 Desain Elegan & Responsif
+- Halaman publik, login, dan dashboard dirancang dengan tampilan modern & profesional.
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## ⚙️ Teknologi yang Digunakan
 
-| Layer        | Teknologi                              |
-|--------------|-----------------------------------------|
-| **Backend**  | Laravel 10, PHP 8.2                     |
-| **Frontend** | Blade, Tailwind CSS, Alpine.js          |
-| **Database** | MySQL                                   |
-| **Library**  | Leaflet.js (Maps), Swiper.js (Slider), Cleave.js (Formatting) |
+| Teknologi      | Deskripsi                       |
+|----------------|---------------------------------|
+| Laravel 10     | Backend utama (PHP Framework)   |
+| PHP 8.2        | Bahasa pemrograman server-side  |
+| MySQL          | Database relasional             |
+| Blade          | Templating engine Laravel       |
+| Tailwind CSS   | Utility-first CSS framework     |
+| Alpine.js      | Interaktivitas ringan di frontend |
+| Swiper.js      | Carousel & slider gambar        |
+| Leaflet.js     | Pemetaan interaktif lokasi      |
+| Cleave.js      | Format angka dan nominal uang   |
 
 ---
 
-## 🚀 Panduan Instalasi
+## 🚀 Panduan Instalasi Lokal
 
-### 📁 1. Clone atau Ekstrak Proyek
 ```bash
-git clone https://github.com/[USERNAME]/nama-proyek.git
-cd nama-proyek
+# 1. Clone atau ekstrak proyek
+git clone [URL_REPO_ANDA]
+cd nama-folder-proyek
 
-⚙️ 2. Konfigurasi .env
-
+# 2. Konfigurasi .env
 cp .env.example .env
+# Sesuaikan DB_DATABASE, DB_USERNAME, DB_PASSWORD, MAIL_*
 
-Ubah:
-	•	DB_DATABASE, DB_USERNAME, DB_PASSWORD
-	•	MAIL_ konfigurasi jika ingin notifikasi email aktif
+# 3. Import Database
+# Buat database di phpMyAdmin lalu import file .sql yang disediakan
 
-🧬 3. Import Database
-	•	Buat database baru via phpMyAdmin atau CLI
-	•	Import file .sql yang telah disediakan (misal: database/polda_jatim.sql)
-
-📦 4. Instalasi Dependensi
-
+# 4. Instal dependensi dan siapkan Laravel
 composer install
 npm install
 php artisan key:generate
 php artisan storage:link
 
-▶️ 5. Jalankan Aplikasi
+# 5. Jalankan server
+npm run dev      # Untuk asset frontend
+php artisan serve # Untuk backend Laravel
 
-npm run dev
-php artisan serve
-
-🧑‍💼 6. Akun Super Admin Pertama
-	•	Akses: http://127.0.0.1:8000
-	•	Pendaftar pertama otomatis menjadi Super Admin
 
 ⸻
+
+🧪 Registrasi Super Admin Pertama
+
+Buka browser ke http://127.0.0.1:8000, lalu buat akun baru.
+Akun pertama yang dibuat akan otomatis menjadi Super Admin.
+
+⸻
+
+📸 Tampilan (Preview)
+
+Login Page	Dashboard Admin	Halaman Peta
+		
+
+
+⸻
+
+🧑‍💻 Developer
+
+[NAMA ANDA]
+Sistem Informasi - Telkom University Surabaya
+
+Untuk pertanyaan, kolaborasi, atau laporan bug, silakan hubungi melalui [email@example.com] atau langsung buka Issues di repositori ini.
+
+⸻
+
+📜 Lisensi
+
+Proyek ini dilisensikan di bawah MIT License.
+
+⸻
+
+
+---
+
+### ✅ **Catatan Tambahan:**
+- Gambar preview seperti `preview/login.png` dapat kamu ganti atau hapus jika belum tersedia.
+- Jangan lupa ubah placeholder `[NAMA ANDA]`, `[URL_REPO_ANDA]`, dan `email@example.com`.
+- Jika ingin menambahkan logo institusi atau badge CI/CD (misal GitHub Actions), tinggal tambahkan bagian `<img>` pada header atau footer.
+
+Kalau kamu mau versi yang dark mode atau tambahan animasi (GIF loading, dashboard), tinggal kasih tahu saja. Mau dijadikan PDF juga bisa.
