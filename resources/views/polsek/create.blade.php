@@ -67,7 +67,7 @@
                     {{-- Upload Laporan Kebutuhan --}}
                     <div>
                         <label for="laporan_kebutuhan" class="block font-semibold text-gray-800 mb-1">
-                            Laporan Kebutuhan Anggaran <span class="text-xs text-red-600 font-medium">*Wajib (PDF maks 20MB)</span>
+                            Laporan Rencana Kebutuhan Anggaran <span class="text-xs text-red-600 font-medium">*Wajib (PDF maks 20MB)</span>
                         </label>
                         <input id="laporan_kebutuhan" name="laporan_kebutuhan" type="file" accept="application/pdf" class="block w-full border border-gray-300 rounded-md shadow-sm" required />
                         <x-input-error :messages="$errors->get('laporan_kebutuhan')" class="mt-2" />
@@ -76,7 +76,7 @@
                     {{-- Upload Laporan Keuangan --}}
                     <div>
                         <label for="laporan_keuangan_lalu" class="block font-semibold text-gray-800 mb-1">
-                            Laporan Realisasi Kebutuhan bulan lalu <span class="text-xs text-red-600 font-medium">*Wajib (PDF maks 20MB)</span>
+                            Laporan Perwabku Bulan Lalu <span class="text-xs text-red-600 font-medium">*Wajib (PDF maks 20MB)</span>
                         </label>
                         <input id="laporan_keuangan_lalu" name="laporan_keuangan_lalu" type="file" accept="application/pdf" class="block w-full border border-gray-300 rounded-md shadow-sm" required />
                         <x-input-error :messages="$errors->get('laporan_keuangan_lalu')" class="mt-2" />

@@ -38,11 +38,11 @@
                     <div class="flex flex-col md:flex-row gap-4 mt-3">
                         <a href="{{ Storage::url($pengajuan->laporan_kebutuhan) }}" target="_blank"
                             class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition">
-                            📄 Laporan Kebutuhan
+                            Laporan Rencana Kebutuhan Anggaran
                         </a>
                         <a href="{{ Storage::url($pengajuan->laporan_keuangan_lalu) }}" target="_blank"
                             class="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700 transition">
-                            📊 Laporan Realisasi Kebutuhan bulan lalu
+                            Laporan Perwabku Bulan Lalu
                         </a>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
 
             {{-- KOLOM KANAN: FORM AKSI ADMIN --}}
             <div class="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-6 space-y-6">
-                <h3 class="text-xl font-semibold text-coklat-polisi border-b pb-3">Aksi Admin</h3>
+                <h3 class="text-xl font-semibold text-coklat-polisi border-b pb-3">Admin Bagren</h3>
 
                 @if(session('success'))
                     <div class="bg-green-100 text-green-800 p-3 rounded-md text-sm">

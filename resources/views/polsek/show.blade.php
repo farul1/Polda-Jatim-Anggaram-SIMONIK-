@@ -35,11 +35,11 @@
                         <div class="flex flex-wrap gap-4">
                             <a href="{{ Storage::url($pengajuan->laporan_kebutuhan) }}" target="_blank"
                                class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg shadow transition">
-                                📎 Laporan Kebutuhan
+                                Laporan Rencana Kebutuhan Anggaran
                             </a>
                             <a href="{{ Storage::url($pengajuan->laporan_keuangan_lalu) }}" target="_blank"
                                class="inline-block px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg shadow transition">
-                                📄 Laporan Realisasi Kebutuhan bulan lalu
+                                Laporan Perwabku Bulan Lalu
                             </a>
                         </div>
                     </div>

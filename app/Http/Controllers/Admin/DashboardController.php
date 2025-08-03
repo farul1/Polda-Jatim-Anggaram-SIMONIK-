@@ -34,6 +34,7 @@ class DashboardController extends Controller
                 ->values();
 
             // Ambil pengajuan (filter kota jika ada)
+            // Diubah namanya menjadi "laporan rencana kebutuhan anggaran" atau "laporan perwabku bulan lalu" di view
             $pengajuans = \App\Models\Pengajuan::with('user')
                 ->when($request->filled('kota'), function ($query) use ($request) {
                     $query->whereHas('user', function ($q) use ($request) {
@@ -51,6 +52,7 @@ class DashboardController extends Controller
                 ->get();
 
             $chartLabels = $polseks->pluck('name');
+            // Data chart bisa menampilkan pagu awal dan sisa pagu jika sudah ditambahkan
             $chartData = $polseks->map(fn ($u) => $u->sisa_pagu);
 
         } elseif ($user->isAdmin()) {
@@ -79,6 +81,7 @@ class DashboardController extends Controller
             'daftarKota' => $daftarKota,
             'chartLabels' => $chartLabels,
             'chartData' => $chartData,
+            // Anda bisa tambahkan data pagu awal di sini untuk ditampilkan di view
         ]);
     }
     public function show(Pengajuan $pengajuan)
@@ -87,6 +90,7 @@ class DashboardController extends Controller
 
         $templates = ReplyTemplate::all();
 
+        // Di view 'admin.show', ubah teks "Aksi Admin" menjadi "Aksi Admin Bagren"
         return view('admin.show', compact('pengajuan', 'templates'));
     }
 
@@ -104,11 +108,10 @@ class DashboardController extends Controller
         $oldStatus = $pengajuan->status;
         $newStatus = $request->status;
 
+        // REVISI: Pagu hanya dikurangi saat status menjadi 'Selesai' untuk pertama kali.
+        // Tidak ada penambahan kembali (tanda plus dihilangkan) untuk menjaga realisasi sesuai pagu awal.
         if ($newStatus === 'Selesai' && $oldStatus !== 'Selesai') {
-            $userPolsek->pagu_anggaran -= $pengajuan->jumlah_diajukan;
-            $userPolsek->save();
-        } elseif ($oldStatus === 'Selesai' && $newStatus !== 'Selesai') {
-            $userPolsek->pagu_anggaran += $pengajuan->jumlah_diajukan;
+            $userPolsek->sisa_pagu -= $pengajuan->jumlah_diajukan;
             $userPolsek->save();
         }
 

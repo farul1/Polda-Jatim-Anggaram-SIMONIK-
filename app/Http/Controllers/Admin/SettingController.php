@@ -41,13 +41,21 @@ public function update(Request $request)
         'aksesoris_kanan_bawah',
     ]);
 
-    // Penghapusan file jika diminta
-    foreach (['logo_kiri', 'logo_kanan', 'welcome_video_path'] as $key) {
-        if ($request->has("remove_$key") && get_setting($key)) {
-            $this->deleteFile(get_setting($key));
-            set_setting($key, null);
+    // Hapus logo jika diminta
+    foreach (['logo_kiri', 'logo_kanan'] as $key) {
+    if ($request->has("remove_$key") && get_setting($key)) {
+        $this->deleteFile(get_setting($key));
+        set_setting($key, null);
         }
     }
+
+    // Hapus video jika diminta
+    if ($request->has('remove_welcome_video') && get_setting('welcome_video_path')) {
+        $this->deleteFile(get_setting('welcome_video_path'));
+        set_setting('welcome_video_path', null);
+        set_setting('welcome_video_type', null);
+    }
+
 
     // Penghapusan aksesoris jika diminta
     foreach (['kanan_atas', 'kiri_atas', 'kiri_bawah', 'kanan_bawah'] as $posisi) {

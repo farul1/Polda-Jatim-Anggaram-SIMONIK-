@@ -1,8 +1,17 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-coklat-polisi leading-tight">
-            {{ __('Riwayat Pengajuan Anggaran') }}
-        </h2>
+    <!-- Tambah z-index pada header -->
+    <x-slot name="header" class="relative z-50">
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-2xl text-coklat-polisi leading-tight">
+                {{ __('Riwayat Pengajuan Anggaran') }}
+            </h2>
+            <div class="bg-yellow-50 border border-yellow-100 px-4 py-2 rounded-lg shadow-sm">
+                <p class="text-xs text-yellow-600 font-medium">Sisa Pagu Tersedia</p>
+                <p class="text-lg font-bold text-coklat-polisi">
+                    Rp {{ number_format(auth()->user()->sisa_pagu, 0, ',', '.') }}
+                </p>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-10">
@@ -22,7 +31,8 @@
                                 <tr>
                                     <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">No</th>
                                     <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">Tanggal Masuk</th>
-                                    <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">Jumlah</th>
+                                    <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">Jumlah Diajukan</th>
+                                    <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">Sisa Pagu</th>
                                     <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">Status</th>
                                     <th class="px-6 py-4 text-left font-bold text-coklat-polisi uppercase tracking-wider">Aksi</th>
                                 </tr>
@@ -34,8 +44,26 @@
                                         <td class="px-6 py-4 text-gray-700">
                                             {{ \Carbon\Carbon::parse($pengajuan->created_at)->isoFormat('DD MMMM YYYY') }}
                                         </td>
-                                        <td class="px-6 py-4 text-gray-700">
+                                        <td class="px-6 py-4 text-gray-700 font-medium">
                                             Rp {{ number_format($pengajuan->jumlah_diajukan, 0, ',', '.') }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            @php
+                                                $sisaPagu = $pengajuan->sisa_pagu_saat_ini ?? auth()->user()->sisa_pagu;
+                                                $paguTotal = auth()->user()->pagu_total;
+                                                $percentage = $paguTotal > 0 ? ($sisaPagu / $paguTotal) * 100 : 0;
+                                                $color = $percentage > 75 ? 'bg-green-500' :
+                                                        ($percentage > 50 ? 'bg-blue-500' :
+                                                        ($percentage > 25 ? 'bg-yellow-500' : 'bg-red-500'));
+                                            @endphp
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-24 bg-gray-200 rounded-full h-2 overflow-hidden">
+                                                    <div class="h-2 {{ $color }}" style="width: {{ $percentage }}%"></div>
+                                                </div>
+                                                <span class="text-xs text-gray-600">
+                                                    Rp {{ number_format($sisaPagu, 0, ',', '.') }}
+                                                </span>
+                                            </div>
                                         </td>
                                         <td class="px-6 py-4">
                                             <span @class([
@@ -73,24 +101,27 @@
                                                             class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                                 🔍 Lihat Detail
                                                             </a>
+                                                            @if($pengajuan->laporan_kebutuhan)
                                                             <a href="{{ Storage::url($pengajuan->laporan_kebutuhan) }}" target="_blank"
                                                             class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                                 📎 Laporan Kebutuhan
                                                             </a>
+                                                            @endif
+                                                            @if($pengajuan->laporan_keuangan_lalu)
                                                             <a href="{{ Storage::url($pengajuan->laporan_keuangan_lalu) }}" target="_blank"
                                                             class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                                                📄 Laporan Realisasi Kebutuhan bulan lalu
+                                                                📄 Laporan Realisasi bulan lalu
                                                             </a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </template>
                                             </div>
                                         </td>
-
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="px-6 py-6 text-center text-gray-500 italic">
+                                        <td colspan="6" class="px-6 py-6 text-center text-gray-500 italic">
                                             Anda belum pernah mengajukan anggaran.
                                         </td>
                                     </tr>
