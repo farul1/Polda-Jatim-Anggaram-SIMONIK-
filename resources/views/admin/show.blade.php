@@ -77,7 +77,7 @@
 
             {{-- KOLOM KANAN: FORM AKSI ADMIN --}}
             <div class="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-6 space-y-6">
-                <h3 class="text-xl font-semibold text-coklat-polisi border-b pb-3">Admin Bagren</h3>
+                <h3 class="text-xl font-semibold text-coklat-polisi border-b pb-3">Admin BAGREN (Bagian Perencanaan)</h3>
 
                 @if(session('success'))
                     <div class="bg-green-100 text-green-800 p-3 rounded-md text-sm">
